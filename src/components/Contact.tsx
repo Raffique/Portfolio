@@ -31,7 +31,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
         subject: formData.subject,
         message: formData.message
       },
-      'Ke_eb7YETRdgtG118r_public_key'      // e.g. "D0dJ9L2x78AaBcDe"
+      'Ke_eb7YETRdgtG118'      // e.g. "D0dJ9L2x78AaBcDe"
     )
     .then((result) => {
       console.log('Email sent successfully:', result.text);
