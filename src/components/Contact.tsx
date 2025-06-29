@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -13,6 +13,10 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    emailjs.init('Ke_eb7YETRdgtG118')
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -30,8 +34,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message
-      },
-      'Ke_eb7YETRdgtG118'      // e.g. "D0dJ9L2x78AaBcDe"
+      }
     )
     .then((result) => {
       console.log('Email sent successfully:', result.text);
